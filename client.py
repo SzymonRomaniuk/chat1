@@ -7,34 +7,24 @@ from tkFileDialog import askopenfilename
 
 
 
-HOST = '25.58.197.210'
+#HOST = '25.58.197.210'
+HOST = gethostname()
 PORT = 9003
 s = socket(AF_INET, SOCK_STREAM)
+global nick
+nick
 
 def onClick():
     messageText = messageFilter(textBox.get("0.0",END)) #filter
 
-    if "/shrug" in messageText :
-        messageText =  "¯\_(ツ)_/¯"
-        s.send(messageText)
+    tmp = messageFilter(textBox2.get("0.0",END))
 
-    elif "/creep" in messageText :
-        messageText = "( ͡° ͜ʖ ͡°)"
-        s.send(messageText) #Just send the message
-    elif "/smile" in messageText :
-        messageText = "•ᴗ•"
-        s.send(messageText) #Just send the message
-    elif "/what" in messageText :
-        messageText = "ლ(ಠ_ಠლ)"
-        s.send(messageText) #Just send the message
-    elif "/img" in messageText :
-        s.send("Your partner is sending an image... /img")#do image stuff
-        tkMessageBox.showinfo(title="Image Transfer", message="Click OK to Select Image")
-        Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-        filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-        Image.open(filename).show()
-    else:
-        s.send(messageText) #send over socket
+    tmp2=tmp+messageText
+    messageText=tmp2
+
+
+
+    s.send(messageText) #send over socket
 
     displayLocalMessage(chatBox, messageText) #display local
     chatBox.yview(END) #auto-scroll
@@ -42,10 +32,32 @@ def onClick():
 
 def onEnterButtonPressed(event):
     textBox.config(state=NORMAL)
+
     onClick()
 
 def removeKeyboardFocus(event):
 	textBox.config(state=DISABLED)
+
+
+
+#base2 = Tk()
+
+#base2.title("Ustaw Nick")
+#base2.geometry("200x50")
+#base2.resizable(width=FALSE, height=FALSE)
+
+#def Close(event):
+    #base2.destroy()
+
+
+
+
+
+
+
+
+
+
 
 def ReceiveData():
     try:
@@ -69,36 +81,66 @@ def ReceiveData():
             break
     s.close()
 
+#NickNameWindow
+
+
+
 
 #Base Window
 base = Tk()
 base.title("Pychat Client")
-base.geometry("400x450")
+base.geometry("600x450")
 base.resizable(width=FALSE, height=FALSE)
 base.configure(bg="#716664")
 
+textBox2 = Text(base, bd=0, bg="#FFFFFF", width="30", height="10", font="Helvetica")
+textBox2.focus_force()
+
+textBox2.bind("<Return>", removeKeyboardFocus)
+
+textBox2.bind("<KeyRelease-Return>", onEnterButtonPressed)
+
+w=Label(base,text="Ustaw Nick")
+
+w.place(x=460, y=25)
+
+textBox2.place(x=400, y=50, height=35, width=180)
+base.focus_force()
+
+def block():
+    textBox2.config(state=DISABLED)
+
+
+nickButton = Button(base,font="Helvetica",text="Wybierz Kodowanie",bg="#33CC00")
+nickButton.pack()
+
+saveNickButton=Button(base,font="Helvetica",text="Zapisz",bg="#33CC00",command=block)
+
+
+
 #Chat
-chatBox = Text(base, bd=0, bg="#689099", height="8", width="20", font="Helvetica",)
+chatBox = Text(base, bd=0, bg="#99FFFF", height="8", width="20", font="Helvetica",)
 chatBox.insert(END, "Waiting for your partner to connect..\n")
 chatBox.config(state=DISABLED)
 sb = Scrollbar(base, command=chatBox.yview, bg = "#34495e")
 chatBox['yscrollcommand'] = sb.set
 
 #Send Button
-sendButton = Button(base, font="Helvetica", text="SEND", width="50", height=5,
-                    bd=0, bg="#BDE096", activebackground="#BDE096", justify="center",
-                    command=onClick)
+#sendButton = Button(base, font="Helvetica", text="Wyślij", width="50", height=5,
+ #                   bd=0, bg="#33CC00", activebackground="#339900", justify="center",
+  #                  command=onClick)
 
 #Text Input
-textBox = Text(base, bd=0, bg="#F8B486",width="29", height="5", font="Helvetica")
+textBox = Text(base, bd=0, bg="#FFFFFF",width="29", height="5", font="Helvetica")
 textBox.bind("<Return>", removeKeyboardFocus)
 textBox.bind("<KeyRelease-Return>", onEnterButtonPressed)
 
 #Put everything on the window
 sb.place(x=370,y=5, height=350)
 chatBox.place(x=15,y=5, height=350, width=355)
-sendButton.place(x=255, y=360, height=80, width=130)
-textBox.place(x=15, y=360, height=80, width=250)
-
+#sendButton.place(x=255, y=360, height=80, width=130)
+textBox.place(x=15, y=360, height=80, width=370)
+nickButton.place(x=390, y=140, height=40, width=205)
+saveNickButton.place(x=440, y=90, height=40, width=100)
 thread.start_new_thread(ReceiveData,())
 base.mainloop()

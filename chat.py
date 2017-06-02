@@ -1,6 +1,14 @@
 from Tkinter import *
 from socket import *
 
+
+nick=''
+def setN(s):
+    global nick
+    nick=s
+
+
+
 def messageFilter(messageText):
     """
     Filter out all useless white lines at the end of a string,
@@ -24,7 +32,8 @@ def displayLocalMessage(chatBox, messageText):
 			#adds line of text to the end
             LineNumber = float(chatBox.index('end'))-1.0
 			#adds text to chatBox
-            chatBox.insert(END, "YOU: " + messageText)
+
+            chatBox.insert(END,"YOU: "+messageText)
 			#tkinter functions to customize aesthetics
             chatBox.tag_add("YOU", LineNumber, LineNumber+0.4)
             chatBox.tag_config("YOU", foreground="#AA3939", font=("Courier", 12, "bold"), justify = "right")
