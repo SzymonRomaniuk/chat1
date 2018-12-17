@@ -51,7 +51,7 @@ def displayLocalMessage(chatBox, messageText):
 
             chatBox.insert(END,messageText)
 
-            chatBox.insert(END,"YOU: "+messageText)
+            #chatBox.insert(END,"YOU: "+messageText)
 
 			#tkinter functions to customize aesthetics
             #chatBox.tag_add("YOU", LineNumber, LineNumber+0.4)

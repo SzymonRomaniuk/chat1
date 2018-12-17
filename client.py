@@ -1,5 +1,6 @@
 from Tkinter import *
 from chat import *
+import os
 from PIL import *
 import thread
 import tkMessageBox
@@ -9,7 +10,8 @@ import time
 
 
 
-#HOST = '25.53.53.24'
+
+#HOST = '25.54.174.161'
 HOST = gethostname()
 
 PORT = 9003
@@ -41,16 +43,118 @@ def onClick1():
     tmp2=tmp+messageText
     messageText=tmp2
     pomoc=''
-
-
+    i = 0
     for i in range(len(messageText)):
         if(messageText[i]=='.' and messageText[i+1]=='-' and messageText[i+2]==' '):
             if(messageText[i-1]==' ' or i==0):
                 pomoc+='a'
 
-        if (messageText[i] == '-' and messageText[i+1] == ' '):
+        if (messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' '):
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'b'
+
+        if ( messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='.' and messageText[i+4]==' ' ):
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'c'
+
+        if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'd'
+
+        if (messageText[i] == '.' and messageText[i+1] == ' '):
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'e'
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='.'and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'f'
+
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'g'
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'h'
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'i'
+
+        if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]=='-' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'j'
+
+        if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'k'
+
+        if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'l'
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'm'
+
+        if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'n'
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'o'
+
+        if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]=='.' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'p'
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='-' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'q'
+
+        if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'r'
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 's'
+
+        if messageText[i] == '-' and messageText[i+1] == ' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 't'
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'u'
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'v'
+
+        if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'w'
+
+        if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='-' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'x'
+
+        if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='-' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'y'
+
+        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += 'z'
+
+        if messageText[i] == ' ' and messageText[i+1] == ' ':
+            if (messageText[i - 1] == ' ' or i == 0):
+                pomoc += ' '
+
+
 
 
     messageText = pomoc
@@ -76,13 +180,6 @@ def onClick2():
             pomoc += '- '
 
 
-
-
-
-
-
-
-
     messageText=pomoc
 
     tmp = messageFilter(textBox2.get("0.0",END))
@@ -91,16 +188,11 @@ def onClick2():
     messageText=tmp2
 
 
-
-
     s.send(messageText) #send over socket
 
     displayLocalMessage(chatBox, messageText) #display local
     chatBox.yview(END) #auto-scroll
     textBox.delete("0.0",END) #clear the input box
-
-
-
 
 def onEnterButtonPressed(event):
     textBox.config(state=NORMAL)
@@ -111,6 +203,7 @@ def onEnterButtonPressed(event):
         onClick1()
     if var.get()==2:
         onClick2()
+
 
 
 
@@ -137,7 +230,8 @@ def ChangeToSound(data):
     for i in range(len(data)):
         if(data[i]=='a' or data[i]=='A'):
             mixer.init()
-            mixer.music.load('f:/Sounds/A_morse_code.mp3')
+            soundPath = os.path.abspath('Sounds/A_morse_code.mp3')
+            mixer.music.load(soundPath)
             mixer.music.play()
             time.sleep(1)
 
@@ -220,7 +314,7 @@ base.geometry("600x450")
 base.resizable(width=FALSE, height=FALSE)
 base.configure(bg="#716664")
 
-
+#thread.start_new_thread(openConnection,())
 
   #TUTAJ
 
@@ -259,11 +353,11 @@ saveNickButton=Button(base,font="Helvetica",text="Zapisz",bg="#33CC00",command=b
 var=IntVar()
 tapy=170
 var.set(0)
-Radiobutton(base,text='Tekst',value=0,variable=var).place(x=440, y=170)
-Radiobutton(base,text='Dekodowanie',value=1,variable=var).place(x=440, y=195)
-Radiobutton(base,text='Kodowanie',value=2,variable=var).place(x=440, y=220)
-Radiobutton(base,text='Sygnały dzwiekowe',value=3,variable=var).place(x=440, y=245)
-Radiobutton(base,text='Sygnały graficzne',value=4,variable=var).place(x=440, y=270)
+Radiobutton(base,text='Tekst',value=0,variable=var).place(x=440, y=180)
+Radiobutton(base,text='Dekodowanie',value=1,variable=var).place(x=440, y=205)
+Radiobutton(base,text='Kodowanie',value=2,variable=var).place(x=440, y=230)
+Radiobutton(base,text='Sygnaly dzwiekowe',value=3,variable=var).place(x=440, y=255)
+Radiobutton(base,text='Sygnaly graficzne',value=4,variable=var).place(x=440, y=280)
 
 
 nickButton = Button(base,font="Helvetica",text="Wybierz Kodowanie",bg="#33CC00")
@@ -282,7 +376,7 @@ sb = Scrollbar(base, command=chatBox.yview, bg = "#34495e")
 chatBox['yscrollcommand'] = sb.set
 
 #Send Button
-#sendButton = Button(base, font="Helvetica", text="Wyślij", width="50", height=5,
+#sendButton = Button(base, font="Helvetica", text="Wyslij", width="50", height=5,
  #                   bd=0, bg="#33CC00", activebackground="#339900", justify="center",
   #                  command=onClick)
 
