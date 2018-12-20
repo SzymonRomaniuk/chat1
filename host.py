@@ -64,120 +64,123 @@ def onClick1():
     messageText=tmp2
     pomoc=''
     i = 0
-    while i < len(messageText):
+    for i in range(len(messageText)):
         if(messageText[i]=='.' and messageText[i+1]=='-' and messageText[i+2]==' '):
             if(messageText[i-1]==' ' or i==0):
                 pomoc+='a'
-                i = i + 3
+
         if (messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' '):
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'b'
-                i = i + 5
+
         if ( messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='.' and messageText[i+4]==' ' ):
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'c'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'd'
-                i = i + 4
+
         if (messageText[i] == '.' and messageText[i+1] == ' '):
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'e'
-                i = i + 2
+
         if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='.'and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'f'
-                i = i + 5
+
 
         if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'g'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'h'
-                i = i + 5
-        if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+3]==' ':
+
+        if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'i'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]=='-' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'j'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'k'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'l'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'm'
-                i = i + 3
+
         if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'n'
-                i = i + 3
+
         if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'o'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]=='.' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'p'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='-' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'q'
-                i = i + 5
+
         if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'r'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 's'
-                i = i + 4
+
         if messageText[i] == '-' and messageText[i+1] == ' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 't'
-                i = i + 2
+
         if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'u'
-                i = i + 4
+
         if messageText[i] == '.' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'v'
-                i = i + 5
+
         if messageText[i] == '.' and messageText[i+1] == '-' and messageText[i+2]=='-' and messageText[i+3]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'w'
-                i = i + 4
+
         if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='.' and messageText[i+3]=='-' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'x'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '.' and messageText[i+2]=='-' and messageText[i+3]=='-' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'y'
-                i = i + 5
+
         if messageText[i] == '-' and messageText[i+1] == '-' and messageText[i+2]=='.' and messageText[i+3]=='.' and messageText[i+4]==' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += 'z'
-                i = i + 5
+
         if messageText[i] == ' ' and messageText[i+1] == ' ':
             if (messageText[i - 1] == ' ' or i == 0):
                 pomoc += ' '
-                i = i + 2
+
 
 
 
     messageText = pomoc
+
+
+
     s.send(messageText) #send over socket
 
     displayLocalMessage(chatBox, messageText) #display local
@@ -197,8 +200,62 @@ def onClick2():
         if(messageText[i]=='a' or messageText[i]=='A'):
             pomoc+='.- '
 
+
+        if (messageText[i] == 'b' or messageText[i] == 'B'):
+            pomoc += '-... '
+        if (messageText[i] == 'c' or messageText[i] == 'C'):
+            pomoc += '-.-. '
+        if (messageText[i] == 'd' or messageText[i] == 'D'):
+            pomoc += '-.. '
+        if (messageText[i] == 'e' or messageText[i] == 'E'):
+            pomoc += '. '
+        if (messageText[i] == 'f' or messageText[i] == 'F'):
+            pomoc += '..-. '
+        if (messageText[i] == 'g' or messageText[i] == 'G'):
+            pomoc += '--. '
+        if (messageText[i] == 'h' or messageText[i] == 'H'):
+            pomoc += '.... '
+        if (messageText[i] == 'i' or messageText[i] == 'I'):
+            pomoc += '.. '
+        if (messageText[i] == 'j' or messageText[i] == 'J'):
+            pomoc += '.--- '
+        if (messageText[i] == 'k' or messageText[i] == 'K'):
+            pomoc += '-.- '
+        if (messageText[i] == 'l' or messageText[i] == 'L'):
+            pomoc += '.-.. '
+        if (messageText[i] == 'm' or messageText[i] == 'M'):
+            pomoc += '-- '
+        if (messageText[i] == 'n' or messageText[i] == 'N'):
+            pomoc += '-. '
+        if (messageText[i] == 'o' or messageText[i] == 'O'):
+            pomoc += '--- '
+        if (messageText[i] == 'p' or messageText[i] == 'P'):
+            pomoc += '.--. '
+        if (messageText[i] == 'q' or messageText[i] == 'Q'):
+            pomoc += '--.- '
+        if (messageText[i] == 'r' or messageText[i] == 'R'):
+            pomoc += '.-. '
+        if (messageText[i] == 's' or messageText[i] == 'S'):
+            pomoc += '... '
         if (messageText[i] == 't' or messageText[i] == 'T'):
             pomoc += '- '
+        if (messageText[i] == 'u' or messageText[i] == 'U'):
+            pomoc += '..- '
+        if (messageText[i] == 'v' or messageText[i] == 'V'):
+            pomoc += '...- '
+        if (messageText[i] == 'w' or messageText[i] == 'W'):
+            pomoc += '.-- '
+        if (messageText[i] == 'x' or messageText[i] == 'X'):
+            pomoc += '-..- '
+        if (messageText[i] == 'y' or messageText[i] == 'Y'):
+            pomoc += '-.-- '
+        if (messageText[i] == 'z' or messageText[i] == 'Z'):
+            pomoc += '--.. '
+        if (messageText[i] == ' ' and messageText[i+1] == ' '):
+            pomoc += ' '
+
+
+
         i = i + 1
 
 
@@ -242,7 +299,8 @@ def ChangeToSound(data):
 
         if(data[i]=='t' or data[i]=='T'):
             mixer.init()
-            mixer.music.load('f:/Sounds/T_morse_code.mp3')
+            soundPath = os.path.abspath('Sounds/T_morse_code.mp3')
+            mixer.music.load(soundPath)
             mixer.music.play()
             time.sleep(1)
 
