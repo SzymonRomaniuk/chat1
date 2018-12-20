@@ -167,11 +167,7 @@ def onClick1():
 def onClick2():
     messageText = messageFilter(textBox.get("0.0",END)) #filter
 
-    tmp = messageFilter(textBox2.get("0.0",END))
-
-    tmp2=tmp+messageText
     pomoc=''
-    messageText=tmp2
     for i in range(len(messageText)):
         if(messageText[i]=='a' or messageText[i]=='A'):
             pomoc+='.- '
