@@ -178,7 +178,9 @@ def onClick1():
 
 
     messageText = pomoc
-
+    tmp = messageFilter(textBox2.get("0.0", END))
+    tmp2 = tmp + messageText
+    messageText = tmp2
 
 
     s.send(messageText) #send over socket
@@ -344,9 +346,11 @@ def openConnection():
                 elif var.get() == 4:
                     ChangeToImage(data, base)
 
+
         except:
             getConnectionInfo(chatBox, '\n [ Your partner has disconnected ]\n [ Waiting for him to connect..] \n  ')
             openConnection()
+
 
 
     conn.close()

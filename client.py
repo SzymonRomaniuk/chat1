@@ -158,6 +158,11 @@ def onClick1():
 
 
     messageText = pomoc
+
+    tmp = messageFilter(textBox2.get("0.0", END))
+    tmp2 = tmp + messageText
+    messageText = tmp2
+
     s.send(messageText) #send over socket
 
     displayLocalMessage(chatBox, messageText) #display local
